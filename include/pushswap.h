@@ -35,14 +35,28 @@ typedef struct s_stack
 // main
 
 // utils
-void	init_stacks(t_stack *stacks[2], int ac, char **av);
-void	new_node(t_stack *last_node, int value);
+void	parse_stack_A(t_stack **stack, int ac, char **av);
+t_stack *add_value_back(t_stack *node, int value);
 t_stack	*get_last_node(t_stack *head);
 int		lst_size(t_stack *stack);
 void	print_res(t_stack *stacks[2]);
 void	error_exit(const char *msg);
 
 // operations
-void	sa(t_stack *stacks);
+void	sa(t_stack **stack);
+void	sb(t_stack **stack);
+void	ss(t_stack *stacks[2]);
+
+void	pa(t_stack **stack_A, t_stack **stack_B);
+void	pb(t_stack **stack_A, t_stack **stack_B);
+
+void	ra(t_stack **stack);
+void	rb(t_stack **stack_B);
+void	rr(t_stack **stack_A, t_stack **stack_B);
+
+// void	rra(t_stack **stack);
+// void	rrb(t_stack **stack_B);
+// void	rrr(t_stack **stack_A, t_stack **stack_B);
+
 
 #endif
