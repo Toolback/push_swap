@@ -63,9 +63,18 @@ void	pa(t_stack **stack_A, t_stack **stack_B)
 		(*stack_B)->next->prev = NULL;
 		temp = *stack_B;
 		*stack_B = (*stack_B)->next;
-		temp->next = *stack_A;
-		(*stack_A)->prev = temp;
-		*stack_A = temp;
+		if (*stack_A)
+		{
+			temp->next = *stack_A;
+			(*stack_A)->prev = temp;
+			*stack_A = temp;
+		}
+		else
+		{
+			temp->next = NULL;
+			temp->prev = NULL;
+			*stack_A = temp;
+		}
 	}
 }
 // pb (push b) : Prend le premier élément au sommet de a et le met sur b.
