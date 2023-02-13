@@ -162,8 +162,8 @@ void	print_res(t_stack *stacks[2])
 
 	i = 0;
 	size = sizeA > sizeB ? sizeA : sizeB;
-	ft_printf("Returned Stacks :\n");
-	ft_printf("------------------\n");
+	ft_printf("\n\nReturned Stacks :\n");
+	ft_printf("---\n");
 	while (i < size)
 	{
 		if (i < sizeA)
@@ -182,7 +182,9 @@ void	print_res(t_stack *stacks[2])
 			printf("\n");
 		i++;
 	}
-	ft_printf("------------------\n");
+	ft_printf("---\n");
+	ft_printf("A B\n");
+
 }
 
 // Fonction pour afficher une erreur et quitter le programme

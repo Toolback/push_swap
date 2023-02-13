@@ -66,9 +66,14 @@ int	pa(t_stack **stack_A, t_stack **stack_B)
 
 	if (*stack_B)
 	{
-		(*stack_B)->next->prev = NULL;
 		temp = *stack_B;
-		*stack_B = (*stack_B)->next;
+		if ((*stack_B)->next)
+		{
+			(*stack_B)->next->prev = NULL;
+			*stack_B = (*stack_B)->next;
+		}
+		else 
+			*stack_B = NULL;
 		if (*stack_A)
 		{
 			temp->next = *stack_A;
