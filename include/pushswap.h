@@ -43,16 +43,16 @@ void	print_res(t_stack *stacks[2]);
 void	error_exit(const char *msg);
 
 // operations
-void	sa(t_stack **stack);
-void	sb(t_stack **stack);
-void	ss(t_stack *stacks[2]);
+int	sa(t_stack **stack);
+int	sb(t_stack **stack);
+int	ss(t_stack *stacks[2]);
 
-void	pa(t_stack **stack_A, t_stack **stack_B);
-void	pb(t_stack **stack_A, t_stack **stack_B);
+int	pa(t_stack **stack_A, t_stack **stack_B);
+int	pb(t_stack **stack_A, t_stack **stack_B);
 
-void	ra(t_stack **stack);
-void	rb(t_stack **stack_B);
-void	rr(t_stack **stack_A, t_stack **stack_B);
+int	ra(t_stack **stack);
+int	rb(t_stack **stack_B);
+int	rr(t_stack **stack_A, t_stack **stack_B);
 
 // void	rra(t_stack **stack);
 // void	rrb(t_stack **stack_B);
