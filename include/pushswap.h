@@ -41,18 +41,18 @@ t_stack	*get_last_node(t_stack *head);
 int		lst_size(t_stack *stack);
 void	print_res(t_stack *stacks[2]);
 void	error_exit(const char *msg);
-
+int 	has_duplicates(int argc, char *argv[]);
 // operations
-int	sa(t_stack **stack);
-int	sb(t_stack **stack);
-int	ss(t_stack *stacks[2]);
+int		sa(t_stack **stack);
+int		sb(t_stack **stack);
+int		ss(t_stack *stacks[2]);
 
-int	pa(t_stack **stack_A, t_stack **stack_B);
-int	pb(t_stack **stack_A, t_stack **stack_B);
+int		pa(t_stack **stack_A, t_stack **stack_B);
+int		pb(t_stack **stack_A, t_stack **stack_B);
 
-int	ra(t_stack **stack);
-int	rb(t_stack **stack_B);
-int	rr(t_stack **stack_A, t_stack **stack_B);
+int		ra(t_stack **stack);
+int		rb(t_stack **stack_B);
+int		rr(t_stack **stack_A, t_stack **stack_B);
 
 // void	rra(t_stack **stack);
 // void	rrb(t_stack **stack_B);
