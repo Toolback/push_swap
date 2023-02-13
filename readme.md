@@ -1,30 +1,22 @@
-1. Vérifiez les arguments passés en entrée pour vous assurer qu'ils sont valides et
-qu'il y a bien 4 d'entre eux.
+# Push_Swap | 42 Project
 
-2. Ouvrez les fichiers file1 et file2 en utilisant la fonction open.
+Given a set of integers, sort it using a predefined set of instructions using two stacks. The instruction set is defined below. This program outputs a program in push_swap instructions that sorts the input integers.
 
-3. Créez un tube avec la fonction pipe.
+## Instruction set
 
-4. Utilisez la fonction fork pour créer un processus fils. Dans ce processus fils,
-utilisez dup2 pour rediriger l'entrée standard vers le descripteur de fichier du fichier
-file1 et la sortie standard vers le descripteur de fichier du tube.
-Ensuite, exécutez la première commande en utilisant execve.
+For the following instructions, if the instruction is not possible, the part of
+it that can't be executed won't.
 
-5. Dans le processus père, utilisez à nouveau dup2 pour rediriger l'entrée standard vers le
-descripteur de fichier du tube et la sortie standard vers le descripteur de fichier du
-fichier file2. Ensuite, exécutez la seconde commande en utilisant execve.
-
-6. Attendre la fin de l'exécution des commandes en utilisant wait ou waitpid.
-
-7. Fermez les descripteurs de fichier et le tube, et libérez toute la mémoire allouée
-dynamiquement avec free.
-
-$> ./pipex infile "ls -l" "wc -l" outfile
-Devrait être identique à < infile ls -l | wc -l > outfile
-
-
-
-I II
-
-I -> II->
-I <- II
+| Code  | Instruction                         | Action                                                 |
+| ----- | ----------------------------------- | ------------------------------------------------------ |
+| `sa`  | swap a                              | swaps the 2 top elements of stack a                    |
+| `sb`  | swap b                              | swaps the 2 top elements of stack b                    |
+| `ss`  | swap a + swap b                     | both `sa` and `sb`                                     |
+| `pa`  | push a                              | moves the top element of stack b at the top of stack a |
+| `pb`  | push b                              | moves the top element of stack a at the top of stack b |
+| `ra`  | rotate a                            | shifts all elements of stack a from bottom to top      |
+| `rb`  | rotate b                            | shifts all elements of stack b from bottom to top      |
+| `rr`  | rotate a + rotate b                 | both `ra` and `rb`                                     |
+| `rra` | reverse rotate a                    | shifts all elements of stack a from top to bottom      |
+| `rrb` | reverse rotate b                    | shifts all elements of stack b from top to bottom      |
+| `rrr` | reverse rotate a + reverse rotate b | both `rra` and `rrb`                                   |
