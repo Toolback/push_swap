@@ -62,7 +62,7 @@ void	parse_stack_A(t_stack **stack, int ac, char **av)
 	while (ac > i)
 	{
 		last = add_value_back(last, ft_atoi(av[i++]));
-		printf("LAST NODE NUM : %d\n", last->num);
+		// printf("LAST NODE NUM : %d\n", last->num);
 	}
 }
 

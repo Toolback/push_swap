@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 		printf("returned node  1 : %d\n", node_1->num);
 		printf("returned node  2  : %d\n", node_2->num);
 		printf("returned node  3  : %d\n\n", node_3->num);
-		sa(&stacks[A]);
+		// sa(&stacks[A]);
 		rb(&stacks[A]);
 		node_1 = stacks[A]->next;
 		node_2 = node_1->next;
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		printf("returned node  0 : %d\n", (stacks[A])->num);
 		printf("returned node  1 : %d\n", node_1->num);
 		printf("returned node  2  : %d\n", node_2->num);
-		// printf("returned node  3  : %d\n\n", node_3->num);
+		printf("returned node  3  : %d\n\n", node_3->num);
 		print_res(stacks);
 	}
 	else

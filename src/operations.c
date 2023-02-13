@@ -79,18 +79,14 @@ void	pb(t_stack **stack_A, t_stack **stack_B)
 // Le premier élément devient le dernier.
 void	ra(t_stack **stack)
 {
-	t_stack *temp;
-	t_stack *last_node;
+	t_stack	*temp;
 
-	temp = get_last_node(*stack);
-	last_node = temp->prev;
-	// printf("LAST NODE NUM : %d\n", last_node->next->num);
-	(*stack)->next->prev = NULL;
-	temp = (*stack)->next;
-	last_node->next = *stack;
-	last_node->next->next = NULL;
-	last_node->next->prev = last_node;
-	*stack = temp;
+	temp = *stack;
+	*stack = temp->next;
+	(*stack)->prev = NULL;
+	temp->next = NULL;
+	temp->prev = get_last_node(*stack);
+	temp->prev->next = temp;
 }
 // rb (rotate b) : Décale d’une position vers le haut tous les élements de la pile b.
 // Le premier élément devient le dernier.
