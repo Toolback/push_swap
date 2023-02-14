@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 		else
 		{
 			values = av + 1;
-			// ac = ft_strarrlen(values);
 			ac = ac - 1;
 		}
 		if (has_duplicates(ac, values) == -1)
@@ -36,21 +35,14 @@ int	main(int ac, char **av)
 		{
 			parse_stack_A(&stacks[A], ac, values);
 			stacks[B] = NULL;
-
-			printf("RETURNED AC [%d]", ac);
 			if (ac <= 5)
-			{
 				small_sort(stacks, ac);
-			}
-			if (ac > 5)
-			{
-
-			}
-			// sa(&stacks[A]);
-			// pb(&stacks[A], &stacks[B]);
-			// rb(&stacks[A]);
-			
+			// if (ac > 5)
+			// {
+				// big_sort(stacks, ac);
+			// }
 			print_res(stacks);
+			return (0);
 		}
 	}
 	else

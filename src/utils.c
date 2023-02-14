@@ -77,24 +77,21 @@ int	lst_size(t_stack *stack)
 	num = 0;
 	if (stack == NULL)
 	{
-		ft_printf("No Found\n");
+		// ft_printf("No Found\n");
 		return (num);	
 	}
 
-	ft_printf("euuh Found\n");
 	t_stack	*save = stack;
 	while (save)
 	{
 		num++;
-	ft_printf("Found What [%d] ? : [%d]\n",num, save->num);
+	// ft_printf("Found What [%d] ? : [%d]\n",num, save->num);
 		save = save->next;
 	}
 	// num--;
 
 	return (num);
 }
-
-// TODO /!
 
 int has_duplicates(int argc, char *argv[]) {
     int i, j;
@@ -116,13 +113,15 @@ int has_duplicates(int argc, char *argv[]) {
 void	print_res(t_stack *stacks[2])
 {
 	int	sizeA = lst_size(stacks[A]);
-	ft_printf("Elements in Stacks A : [%d]\n", sizeA);
+	// ft_printf("Elements in Stacks A : [%d]\n", sizeA);
 	int	sizeB = lst_size(stacks[B]);
-	ft_printf("Elements in Stacks B : [%d]\n", sizeB);
+	// ft_printf("Elements in Stacks B : [%d]\n", sizeB);
 	int	size;
 	int	i;
+	int flag;
 
 	i = 0;
+	flag = 0;
 	size = sizeA > sizeB ? sizeA : sizeB;
 	ft_printf("\n\nReturned Stacks :\n");
 	ft_printf("---\n");
@@ -131,6 +130,11 @@ void	print_res(t_stack *stacks[2])
 		if (i < sizeA)
 		{
 			ft_printf("%d ", stacks[A]->num);
+			if (stacks[A]->next)
+			{
+				if (stacks[A]->num > stacks[A]->next->num)
+					flag = 1;
+			}
 			stacks[A] = stacks[A]->next;
 		}
 		else
@@ -146,6 +150,10 @@ void	print_res(t_stack *stacks[2])
 	}
 	ft_printf("---\n");
 	ft_printf("A B\n");
+	if (flag)
+	    printf("\033[31mError : Final List Not Sorted\033[0m\n");
+	else
+		printf("\033[32mSucces <3 Final List Sorted !\033[0m\n");
 
 }
 

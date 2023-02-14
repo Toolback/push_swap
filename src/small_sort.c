@@ -12,47 +12,68 @@
 
 #include "../include/pushswap.h"
 
-int sort_three_values(t_stack *stacks[2])
+int sort_two_values(t_stack **stack)
+{
+    if ((*stack)->num > (*stack)->next->num)
+    {
+        sa(stack);
+    }
+    return (0);
+}
+int sort_three_values(t_stack **stack)
 {
     // 2 1 3
-    if (stacks[A]->num > stacks[A]->next->num 
-        && stacks[A]->next->num < stacks[A]->next->next->num
-        && stacks[A]->num < stacks[A]->next->next->num)
+    if ((*stack)->num > (*stack)->next->num 
+        && (*stack)->next->num < (*stack)->next->next->num
+        && (*stack)->num < (*stack)->next->next->num)
     {
-        sa(&stacks[A]);
+        sa(stack);
         printf("SA Operated ! \n");
     }
     // 3 2 1
-    if (stacks[A]->num > stacks[A]->next->num 
-        && stacks[A]->next->num > stacks[A]->next->next->num
-        && stacks[A]->num > stacks[A]->next->next->num)
+    if ((*stack)->num > (*stack)->next->num 
+        && (*stack)->next->num > (*stack)->next->next->num
+        && (*stack)->num > (*stack)->next->next->num)
     {
-        sa(&stacks[A]);
-        rra(&stacks[A]);
+        sa(stack);
+        rra(stack);
     }
     // 3 1 2
-    if (stacks[A]->num > stacks[A]->next->num 
-        && stacks[A]->next->num < stacks[A]->next->next->num
-        && stacks[A]->num > stacks[A]->next->next->num)
+    if ((*stack)->num > (*stack)->next->num 
+        && (*stack)->next->num < (*stack)->next->next->num
+        && (*stack)->num > (*stack)->next->next->num)
     {
-        ra(&stacks[A]);
+        ra(stack);
     }
     // 1 3 2
-    if (stacks[A]->num < stacks[A]->next->num 
-        && stacks[A]->next->num > stacks[A]->next->next->num
-        && stacks[A]->num < stacks[A]->next->next->num)
+    if ((*stack)->num < (*stack)->next->num 
+        && (*stack)->next->num > (*stack)->next->next->num
+        && (*stack)->num < (*stack)->next->next->num)
     {
-        sa(&stacks[A]);
-        ra(&stacks[A]);
+        sa(stack);
+        ra(stack);
     }
     // 2 3 1
-    if (stacks[A]->num < stacks[A]->next->num 
-        && stacks[A]->next->num > stacks[A]->next->next->num
-        && stacks[A]->num > stacks[A]->next->next->num)
+    if ((*stack)->num < (*stack)->next->num 
+        && (*stack)->next->num > (*stack)->next->next->num
+        && (*stack)->num > (*stack)->next->next->num)
     {
-        rra(&stacks[A]);
+        rra(stack);
     }
     return (0);
+
+}
+
+void    sort_four_values(t_stack *stacks[2])
+{
+    // swap 2 first values from A to B
+    pb(&stacks[A], &stacks[B]);
+    pb(&stacks[A], &stacks[B]);
+    // sort 3 remaining values
+    sort_three_values(&stacks[A]);
+    // retrieve stack B value
+    pa(&stacks[B], &stacks[A]);
+    // and sort last value in A
 
 }
 
@@ -61,8 +82,12 @@ int sort_three_values(t_stack *stacks[2])
 
 void    small_sort(t_stack *stacks[2], int ac)
 {
+    if (ac == 2)
+        sort_two_values(&stacks[A]);
     if (ac == 3)
-        sort_three_values(stacks);
-    // else if (ac == 5)
+        sort_three_values(&stacks[A]);
+    if (ac == 4)
+        sort_four_values(stacks);
+    // if (ac == 5)
         // sort_five_values(stacks);
 }
