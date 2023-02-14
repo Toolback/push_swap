@@ -34,6 +34,9 @@ typedef struct s_stack
 
 // main
 
+// sort
+void    small_sort(t_stack *stacks[2], int ac);
+
 // utils
 void	parse_stack_A(t_stack **stack, int ac, char **av);
 t_stack *add_value_back(t_stack *node, int value);
@@ -54,9 +57,9 @@ int		ra(t_stack **stack);
 int		rb(t_stack **stack_B);
 int		rr(t_stack **stack_A, t_stack **stack_B);
 
-// void	rra(t_stack **stack);
-// void	rrb(t_stack **stack_B);
-// void	rrr(t_stack **stack_A, t_stack **stack_B);
+int		rra(t_stack **stack);
+int		rrb(t_stack **stack_B);
+int		rrr(t_stack **stack_A, t_stack **stack_B);
 
 
 #endif

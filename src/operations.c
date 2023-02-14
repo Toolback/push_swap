@@ -148,7 +148,7 @@ int	rra(t_stack **stack)
 {
 	t_stack *last_node;
 	t_stack *temp;
-	t_stack *prev;
+	// t_stack *prev;
 
 	if (!*stack || !(*stack)->next)
 	{
@@ -156,14 +156,24 @@ int	rra(t_stack **stack)
 		return (0);
 	}
 	last_node = get_last_node(*stack);
-	prev = last_node->prev; 
-	last_node->prev = NULL;
-	last_node->next = (*stack)->next;
-	(*stack)->next->prev = last_node;
+	last_node->prev->next = NULL;
 	temp = *stack;
-	temp->next = NULL;
-	temp->prev = prev;
+	last_node->prev = NULL;
+	last_node->next = temp;
+	temp->prev = last_node;
 	*stack = last_node;
+
+
+
+	// last_node = get_last_node(*stack);
+	// prev = last_node->prev; 
+	// last_node->prev = NULL;
+	// last_node->next = (*stack)->next;
+	// (*stack)->next->prev = last_node;
+	// temp = *stack;
+	// temp->next = NULL;
+	// temp->prev = prev;
+	// *stack = last_node;
 	return (1);
 }
 

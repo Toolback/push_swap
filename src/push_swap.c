@@ -37,8 +37,17 @@ int	main(int ac, char **av)
 			parse_stack_A(&stacks[A], ac, values);
 			stacks[B] = NULL;
 
+			printf("RETURNED AC [%d]", ac);
+			if (ac <= 5)
+			{
+				small_sort(stacks, ac);
+			}
+			if (ac > 5)
+			{
+
+			}
 			// sa(&stacks[A]);
-			pb(&stacks[A], &stacks[B]);
+			// pb(&stacks[A], &stacks[B]);
 			// rb(&stacks[A]);
 			
 			print_res(stacks);
