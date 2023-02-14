@@ -68,7 +68,6 @@ void    sort_four_values(t_stack *stacks[2])
 {
     // swap 2 first values from A to B
     pb(&stacks[A], &stacks[B]);
-    pb(&stacks[A], &stacks[B]);
     // sort 3 remaining values
     sort_three_values(&stacks[A]);
     // retrieve stack B value
@@ -78,7 +77,20 @@ void    sort_four_values(t_stack *stacks[2])
 }
 
 // void    sort_five_values(t_stack *stacks[2])
-// {}
+// {
+//         // swap 2 first values from A to B
+//     pb(&stacks[A], &stacks[B]);
+//     pb(&stacks[A], &stacks[B]);
+//     // sort 3 remaining values
+//     sort_three_values(&stacks[A]);
+//     // retrieve stack B value
+//     pa(&stacks[B], &stacks[A]);
+//     // and sort last value in A
+
+//     //
+//     pa(&stacks[B], &stacks[A]);
+//     //
+// }
 
 void    small_sort(t_stack *stacks[2], int ac)
 {
