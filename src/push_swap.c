@@ -15,14 +15,26 @@
 int	main(int ac, char **av)
 {
 	t_stack	*stacks[2];
+	char 	**values;
 
 	if (ac > 1)
 	{
-		if (has_duplicates(ac, av) == -1)
+		if (ac == 2)
+		{
+			values = ft_split(av[1], ' ');
+			ac = ft_strarrlen(values);
+		}
+		else
+		{
+			values = av + 1;
+			// ac = ft_strarrlen(values);
+			ac = ac - 1;
+		}
+		if (has_duplicates(ac, values) == -1)
 			error_exit("Error : Has at least twice same number\n");
 		else
 		{
-			parse_stack_A(&stacks[A], ac, av);
+			parse_stack_A(&stacks[A], ac, values);
 			stacks[B] = NULL;
 
 			// sa(&stacks[A]);

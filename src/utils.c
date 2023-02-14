@@ -31,9 +31,9 @@ void	parse_stack_A(t_stack **stack, int ac, char **av)
 {
 	int i;
 	t_stack *last;
-	i = 2;
+	i = 1;
 	// create first node
-	*stack = add_value_back(*stack, ft_atoi(av[1]));
+	*stack = add_value_back(*stack, ft_atoi(av[0]));
 	last = *stack;
 	// create as many node as args
 	while (ac > i)
