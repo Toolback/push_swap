@@ -71,8 +71,29 @@ void    sort_four_values(t_stack *stacks[2])
     // sort 3 remaining values
     sort_three_values(&stacks[A]);
     // retrieve stack B value
-    pa(&stacks[B], &stacks[A]);
     // and sort last value in A
+    // if B1 > A1 && B1 < A1 
+    if (stacks[B]->num > stacks[A]->num && stacks[B]->num < stacks[A]->next->num)
+        {
+            pa(&stacks[A], &stacks[B]);
+            sa(&stacks[A]);
+        }
+    else if (stacks[B]->num > stacks[A]->next->num && stacks[B]->num < stacks[A]->next->next->num)
+    {
+        rra(&stacks[A]);
+        pa(&stacks[A], &stacks[B]);
+        rb(&stacks[A]);
+        rb(&stacks[A]);
+    }
+    else if (stacks[B]->num > stacks[A]->next->next->num)
+    {
+        pa(&stacks[A], &stacks[B]);
+        rb(&stacks[A]);
+    }
+    else 
+    {
+        pa(&stacks[A], &stacks[B]);
+    }
 
 }
 
@@ -90,7 +111,6 @@ void    sort_four_values(t_stack *stacks[2])
 //     //
 //     pa(&stacks[B], &stacks[A]);
 //     //
-// }
 
 void    small_sort(t_stack *stacks[2], int ac)
 {
