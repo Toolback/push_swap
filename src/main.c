@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jurenaul <jurenaul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jurenaul <jurenaul@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 14:33:20 by jurenaul          #+#    #+#             */
-/*   Updated: 2023/02/11 16:33:56 by jurenaul         ###   ########.fr       */
+/*   Created: 2023/02/20 21:10:49 by jurenaul          #+#    #+#             */
+/*   Updated: 2023/02/20 21:10:49 by jurenaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	main(int ac, char **av)
 			stacks[B] = NULL;
 			if (ac <= 5)
 				small_sort(stacks, ac);
-			// if (ac > 5)
-			// {
-				// big_sort(stacks, ac);
-			// }
+			if (ac > 5)
+			{
+				big_sort(stacks, ac);
+			}
 			print_res(stacks);
 			return (0);
 		}

@@ -37,19 +37,27 @@ typedef struct s_stack
 // - - - - sort - - - - 
 // ########################
 void    small_sort(t_stack *stacks[2], int ac);
+void    big_sort(t_stack *stacks[2], int ac);
 
 // ########################
 // - - - - utils - - - - 
 // ########################
-void	parse_stack_A(t_stack **stack, int ac, char **av);
-t_stack *add_value_back(t_stack *node, int value);
-t_stack	*get_last_node(t_stack *tail);
+void	sort(t_stack **stack, int ac);
 t_stack *get_min_value(t_stack *tail);
-int		lst_size(t_stack *stack);
-int 	get_prev_count(t_stack *stack);
 void	print_res(t_stack *stacks[2]);
 void	error_exit(const char *msg);
 int 	has_duplicates(int argc, char *argv[]);
+t_stack *copy_list(t_stack *list);
+
+// ########################
+// - - - - lists_utils - - - - 
+// ########################
+void	parse_stack_A(t_stack **stack, int ac, char **av);
+t_stack *add_value_back(t_stack *node, int value);
+t_stack	*get_last_node(t_stack *tail);
+t_stack	*get_first_node(t_stack *head);
+int		lst_size(t_stack *stack);
+int 	get_prev_count(t_stack *stack);
 
 // ########################
 // - - - operations - - -

@@ -12,19 +12,35 @@
 
 #include "../include/pushswap.h"
 
-t_stack	*get_last_node(t_stack *tail)
+
+void	sort(t_stack **stack, int ac)
 {
-	t_stack *temp;
-	if (!tail)
+	int	i;
+	int res;
+	int temp;
+	t_stack *save;
+
+	i = 0;
+	res = 1;
+	temp = 0;
+	save = *stack;
+	while (i < ac)
 	{
-		ft_printf("get_last_node: tail is null\n");
-		// exit(EXIT_FAILURE);
-		return (NULL);
+		if (save->next)
+		{
+			if (save->num > save->next->num)
+			{
+				temp = save->num;
+				save->num = save->next->num;
+				save->next->num = temp;
+				res = 0;
+			}
+			save = save->next;
+		}
+		i++;
 	}
-	temp = tail;
-	while (temp->next)
-		temp = temp->next;
-	return (temp);
+	if (!res)
+		sort(stack, ac);
 }
 
 t_stack *get_min_value(t_stack *tail)
@@ -38,90 +54,6 @@ t_stack *get_min_value(t_stack *tail)
 		save = save->next;
 	}
 	return (min);
-}
-
-void	parse_stack_A(t_stack **stack, int ac, char **av)
-{
-	int i;
-	t_stack *last;
-	i = 1;
-	// create first node
-	*stack = NULL;
-	*stack = add_value_back(*stack, ft_atoi(av[0]));
-	last = *stack;
-	// create as many node as args
-	while (ac > i)
-	{
-		last = add_value_back(last, ft_atoi(av[i++]));
-		// printf("LAST NODE NUM : %d\n", last->num);
-	}
-}
-
-t_stack *add_value_back(t_stack *node, int value)
-{
-	// if no node, create the first of the list
-	if (!node)
-	{
-		node = (t_stack *)malloc(sizeof(t_stack));
-		if (node == NULL)
-			error_exit("Malloc failed");
-		node->prev = NULL;
-		node->num = value;
-		node->next = NULL;
-		node->get_prev_count = &get_prev_count;
-		return (node);
-	}
-	// else add value at last node
-	else 
-	{
-		node->next = (t_stack *)malloc(sizeof(t_stack));
-		if (node->next == NULL)
-			error_exit("Malloc failed");
-		node->next->prev = node;
-		node->next->num = value;
-		node->next->next = NULL;
-		node->next->get_prev_count = &get_prev_count;
-		return (node->next);
-	}
-}
-
-int	lst_size(t_stack *stack)
-{
-	int	num;
-
-	num = 0;
-	if (stack == NULL)
-	{
-		// ft_printf("No Found\n");
-		return (num);	
-	}
-
-	t_stack	*save = stack;
-	while (save)
-	{
-		num++;
-	// ft_printf("Found What [%d] ? : [%d]\n",num, save->num);
-		save = save->next;
-	}
-	// num--;
-
-	return (num);
-}
-
-int get_prev_count(t_stack *stack) 
-{
-    int count = 0;
-	if (!stack)
-	{
-		ft_printf("get_prev_count: stack is null\n");
-		return (-1);
-	}
-	t_stack	*save = stack;
-    while (save->prev) {
-		save = save->prev;
-        count++;
-    }
-    return count;
 }
 
 int has_duplicates(int argc, char *argv[]) {
