@@ -16,7 +16,6 @@ void simplify(t_stack **stack, int ac)
 {
     int i = 0;
     t_stack *save = *stack;
-    t_stack *save2 = *stack;
     t_stack *save_copy = NULL;
     t_stack *temp = NULL;
 
@@ -44,7 +43,7 @@ void simplify(t_stack **stack, int ac)
         }
         *stack = (*stack)->next;
     }
-    *stack = save2;
+    *stack = save;
 
     // Libérer la mémoire allouée pour la copie de la liste chaînée save
     // ft_lstclear(&save_copy);
