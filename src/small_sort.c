@@ -97,20 +97,37 @@ void    sort_four_values(t_stack *stacks[2])
 
 }
 
-// void    sort_five_values(t_stack *stacks[2])
-// {
-//         // swap 2 first values from A to B
-//     pb(&stacks[A], &stacks[B]);
-//     pb(&stacks[A], &stacks[B]);
-//     // sort 3 remaining values
-//     sort_three_values(&stacks[A]);
-//     // retrieve stack B value
-//     pa(&stacks[B], &stacks[A]);
-//     // and sort last value in A
-
-//     //
-//     pa(&stacks[B], &stacks[A]);
-//     //
+void    sort_five_values(t_stack *stacks[2])
+{
+    int index;
+    t_stack *min;
+    // retrieve min value of stack A
+    min = get_min_value(stacks[A]);
+    printf("min value retrieved [%d]\n", min->num);
+    // if necessary swap min A index 0
+    index = min->get_prev_count(min);
+    // printf("Index Retrieved [%d]\n", stacks[A]->get_prev_count(stacks[A]));
+    if (index == 1)
+        sa(&stacks[A]);
+    if (index == 2)
+    {
+        ra(&stacks[A]);
+        sa(&stacks[A]);
+    }
+    if (index == 3)
+    {
+        rra(&stacks[A]);
+        rra(&stacks[A]);
+    }
+    if (index == 4)
+        rra(&stacks[A]);
+    // swap min value from A to B
+    pb(&stacks[A], &stacks[B]);
+    // sort 3 remaining values
+    sort_four_values(&stacks[A]);
+    // retrieve stack B value ->> min A value
+    pa(&stacks[A], &stacks[B]);
+}
 
 void    small_sort(t_stack *stacks[2], int ac)
 {
@@ -120,6 +137,6 @@ void    small_sort(t_stack *stacks[2], int ac)
         sort_three_values(&stacks[A]);
     if (ac == 4)
         sort_four_values(stacks);
-    // if (ac == 5)
-        // sort_five_values(stacks);
+    if (ac == 5)
+        sort_five_values(stacks);
 }

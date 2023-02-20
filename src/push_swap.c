@@ -34,6 +34,8 @@ int	main(int ac, char **av)
 		else
 		{
 			parse_stack_A(&stacks[A], ac, values);
+			// printf("returned PREV [%d]", stacks[A]->next->get_prev_count(stacks[A]->next));
+
 			stacks[B] = NULL;
 			if (ac <= 5)
 				small_sort(stacks, ac);
