@@ -49,11 +49,41 @@ void simplify(t_stack **stack, int ac)
     // ft_lstclear(&save_copy);
 }
 
+void    radix_sort(t_stack *stacks[2], int ac)
+{
+    int i;
+    int j;
+    int num;
+    int size;
+    int max_num;
+    int max_bits;
+    
+    i = 0;
+    size = ac;
+    max_num = size - 1;
+    max_bits = 0;
+    while ((max_num >> max_bits) != 0)
+        ++max_bits;
+    while (i < max_bits)
+    {
+    j = 0;
+        while (j < size)
+        {
+            num = stacks[A]->num;
+            if (((num >> i) & 1) == 1) 
+                ra(&stacks[A]);
+            else
+                pb(&stacks[A], &stacks[B]);
+            j++;
+        }
+        while (stacks[B])
+            pa(&stacks[A], &stacks[B]);
+        i++;
+    }
+}
 
 void    big_sort(t_stack *stacks[2], int ac)
 {
-    t_stack **save;
-
-    save = &stacks[A];
-    simplify(save, ac);
+    simplify(&stacks[A], ac);
+    radix_sort(stacks, ac);
 }
